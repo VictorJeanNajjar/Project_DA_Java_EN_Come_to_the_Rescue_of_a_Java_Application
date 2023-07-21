@@ -20,16 +20,21 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
-	
+
+	/**
+	 * Reads the symptom data from the specified file and returns a list of symptoms.
+	 *
+	 * @return A list of symptoms as strings. If no data is available or an error occurs, an empty list is returned
+	 * since a blank list was defined in the ISymptomReader interface.
+	 */
 	@Override
 	public List<String> GetSymptoms() {
-		//ArrayList<String> result = new ArrayList<String>();// initialised in interface
-		
 		if (filepath != null) {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
-				
+
+				// Read each line from the file and add it to the result list
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
@@ -41,7 +46,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 		}
 		
-		return result;
+		return result;// Return the list of symptoms
 	}
 
 }
