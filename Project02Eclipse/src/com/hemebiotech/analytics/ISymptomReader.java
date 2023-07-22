@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This interface represents a symptom reader, responsible for reading symptom data.
- * It provides a method to get a list of symptoms.
+ * This interface represents a symptom reader, responsible for reading symptom data
+ * it provides a method to get a list of symptoms.
+ *
  */
 public interface ISymptomReader {
 	/**

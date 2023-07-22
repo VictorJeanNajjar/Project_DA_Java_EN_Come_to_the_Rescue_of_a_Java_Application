@@ -5,6 +5,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+/**
+ * This class utilizes two methods to create a TreeMap containing the number of occurrence
+ * and also writes the data to a file with fileWriter.
+ *
+ */
 
 public class AnalyticsCounter extends ReadSymptomDataFromFile {
 	private String outputFile;
@@ -30,23 +35,23 @@ public class AnalyticsCounter extends ReadSymptomDataFromFile {
 	public TreeMap<String, Integer> symptomOrganiser() {
 		// Read symptoms from the input file using the ReadSymptomDataFromFile class
 		ArrayList<String> fileSymptoms = (ArrayList<String>) new ReadSymptomDataFromFile(inputFile).GetSymptoms();
-		TreeMap<String, Integer> MapSymptomCounter = new TreeMap<>();
-		// Count occurrences of each symptom and store them in the MapSymptomCounter TreeMap
+		TreeMap<String, Integer> mapSymptomCounter = new TreeMap<>();
+		// Count occurrences of each symptom and store them in the mapSymptomCounter TreeMap
 		for (String element : fileSymptoms) {
-			MapSymptomCounter.put(element, MapSymptomCounter.getOrDefault(element, 0) + 1);
+			mapSymptomCounter.put(element, mapSymptomCounter.getOrDefault(element, 0) + 1);
 		}
-		return MapSymptomCounter;// Return the TreeMap containing symptom counts
+		return mapSymptomCounter;// Return the TreeMap containing symptom counts
 	}
 
 	/**
 	 *Method to write the symptom counts to the outputFile
 	 *
 	 */
-	public void filewriter (TreeMap<String, Integer> SymptomCounterWriter) throws IOException {
+	public void fileWriter(TreeMap<String, Integer> symptomCounterWriter) throws IOException {
 		FileWriter writer = new FileWriter(outputFile);
 		String fileContent;
 		// Write the symptom counts to the output file
-		for (Map.Entry<String, Integer> entry : SymptomCounterWriter.entrySet()) {
+		for (Map.Entry<String, Integer> entry : symptomCounterWriter.entrySet()) {
 			if (entry.getValue() > 1) {
 				fileContent =   entry.getKey() + " = " + entry.getValue() + "\n";
 				writer.write(fileContent);

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Simple brute force implementation to make a list from the file containing the symptoms.
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
