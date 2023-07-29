@@ -52,7 +52,7 @@ public class AnalyticsCounter extends ReadSymptomDataFromFile {
 		String fileContent;
 		// Write the symptom counts to the output file
 		for (Map.Entry<String, Integer> entry : symptomCounterWriter.entrySet()) {
-			if (entry.getValue() > 1) {
+			if (entry.getValue() > 0) {
 				fileContent =   entry.getKey() + " = " + entry.getValue() + "\n";
 				writer.write(fileContent);
 			}
